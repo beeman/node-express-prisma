@@ -34,13 +34,19 @@ Read the `.env.example` file for configuration options.
 cp .env.example .env
 ```
 
-### 4. Run the server
+### 4. Create the database
+
+```shell
+yarn prisma db push
+```
+
+### 5. Run the server
 
 ```shell
 yarn dev
 ```
 
-### 5. Call server endpoints
+### 6. Call server endpoints
 
 #### Register a new user
 
