@@ -45,13 +45,19 @@ yarn dev
 #### Register a new user
 
 ```shell
-curl --header "Content-Type: application/json" -XPOST http://localhost:4000/register --data '{ "email": "a@a.com", "password": "12345678" }'
+curl -XPOST http://localhost:4000/register --header "Content-Type: application/json" --data '{ "email": "a@a.com", "password": "12345678" }'
 ```
 
 #### Login
 
 ```shell
-curl --header "Content-Type: application/json" -XPOST http://localhost:4000/login --data '{ "email": "a@a.com", "password": "12345678" }'
+curl -XPOST http://localhost:4000/login --header "Content-Type: application/json" --data '{ "email": "a@a.com", "password": "12345678" }'
+```
+
+#### Get user info
+
+```shell
+curl -XGET http://localhost:4000/me --header "Content-Type: application/json" --header "Authorization: Bearer <token>"
 ```
 
 ## Docker

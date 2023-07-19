@@ -1,6 +1,7 @@
-import { Request, Response } from 'express'
 import { compare } from 'bcryptjs'
+import { Request, Response } from 'express'
 import { prisma } from '../../lib'
+import { generateAccessToken } from '../../lib/jwt'
 
 export function loginRoute() {
   return async (req: Request, res: Response) => {
@@ -31,6 +32,8 @@ export function loginRoute() {
       return res.send({ error: 'Invalid email or password' })
     }
 
-    return res.send({ message: 'Logged in' })
+    const token = generateAccessToken(found)
+    found.password = undefined
+    return res.send({ user: found, token })
   }
 }

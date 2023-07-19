@@ -1,6 +1,7 @@
 import * as express from 'express'
 import { Request, Response } from 'express'
 import { loginRoute } from './routes/login.route'
+import { meRoute } from './routes/me.route'
 import { registerRoute } from './routes/register.route'
 
 import { uptimeRoute } from './routes/uptime.route'
@@ -13,6 +14,7 @@ export async function server(config: ServerConfig) {
 
   // Authentication routes
   app.post('/login', loginRoute())
+  app.get('/me', meRoute())
   app.post('/register', registerRoute())
 
   // Root Route, must be the last one.
