@@ -1,0 +1,50 @@
+{
+  "name": "nx-app",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "nx build api --prod",
+    "dev": "nx serve api",
+    "docker:build": "docker build . -t ghcr.io/beeman/node-express-prisma",
+    "docker:push": "docker push ghcr.io/beeman/node-express-prisma",
+    "docker:run": "docker run -it -p 9876:9876 --env-file ./.env ghcr.io/beeman/node-express-prisma",
+    "generate-keypair": "yarn nx workspace-generator generate-keypair",
+    "start": "node dist/api/main.js",
+    "test": "nx test"
+  },
+  "private": true,
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "prisma": "^5.0.0",
+    "tslib": "^2.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@nrwl/cli": "15.3.0",
+    "@nrwl/devkit": "15.3.0",
+    "@nrwl/eslint-plugin-nx": "15.3.0",
+    "@nrwl/express": "15.3.0",
+    "@nrwl/jest": "15.3.0",
+    "@nrwl/linter": "15.3.0",
+    "@nrwl/node": "15.3.0",
+    "@nrwl/nx-cloud": "15.0.2",
+    "@nrwl/workspace": "15.3.0",
+    "@prisma/client": "^5.0.0",
+    "@types/express": "4.17.14",
+    "@types/jest": "28.1.1",
+    "@types/node": "^18.11.12",
+    "@typescript-eslint/eslint-plugin": "^5.46.0",
+    "@typescript-eslint/parser": "^5.46.0",
+    "eslint": "~8.29.0",
+    "eslint-config-prettier": "8.5.0",
+    "jest": "28.1.1",
+    "jest-environment-jsdom": "28.1.1",
+    "nx": "15.3.0",
+    "prettier": "^2.8.1",
+    "ts-jest": "28.0.5",
+    "ts-node": "10.9.1",
+    "typescript": "~4.9.4"
+  }
+}
